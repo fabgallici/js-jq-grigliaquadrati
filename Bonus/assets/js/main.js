@@ -1,3 +1,11 @@
+/* Creare una griglia formata da 8x8 quadratini tutti bianchi.
+15 di questi quadratini(scelti a caso all’inizio) se cliccati diventano rossi,
+  gli altri diventano verdi(tutti i rimanennti)
+Opzionale: Sopra alla griglia deve esserci un contatore che conta quanti rossi e quanti verdi sono stati scoperti
+BONUS:
+generare la distribuzione di quelli che diventano rossi al click, in modo casuale;
+generare l’intera griglia in js, invece che scriverla noi a mano nel file html;
+controllo sul click di un quadrato, se è stato già cliccato dò un feedback aggiuntivo, oltre il fatto che è colorato di già; */
 //genera un numero casuale fra 0 e max
 function rndGen(max) {
   var intNUm = Math.floor(Math.random() * (max + 1));
@@ -34,9 +42,9 @@ function createGrid(row, item) {
 }
 
 function createjGrid(row, item) {
-  //genero le row
   var rowInner = '<div class="row"></div>';
   var itemInner = '<div class="square"></div>';
+  //genero le row
   for (var j = 1; j <= row; j++) {
     $('#square-grid').append(rowInner);
   }
