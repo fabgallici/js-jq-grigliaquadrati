@@ -49,12 +49,12 @@ $(document).ready(function () {
 
   $(".square").click(function() {
     if($(this).attr("red")) {
-      $(this).css("background", "red");
+      $(this).addClass("bg-red");
       redScore++;
       $(".red-counter > span").text(redScore);
       $(this).off();
     } else {
-      $(this).css("background", "green");
+      $(this).addClass("bg-green");
       greenScore++;
       $(".green-counter > span").text(greenScore);
       $(this).off();
