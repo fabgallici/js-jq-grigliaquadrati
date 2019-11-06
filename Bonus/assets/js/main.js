@@ -49,12 +49,12 @@ $(document).ready(function () {
 
   $(".square").click(function() {
     if($(this).attr("red")) {
-      $(this).addClass("bg-red");
+      $(this).addClass("bg-red cursor-default");
       redScore++;
       $(".red-counter > span").text(redScore);
-      $(this).off();
+      $(this).off();  //remove event click from this .square , oppure posso rimuovere attributo red
     } else {
-      $(this).addClass("bg-green");
+      $(this).addClass("bg-green cursor-default");
       greenScore++;
       $(".green-counter > span").text(greenScore);
       $(this).off();
