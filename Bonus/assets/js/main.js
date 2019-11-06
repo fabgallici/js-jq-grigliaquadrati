@@ -19,7 +19,7 @@ function getNonRepArr(arrSize, maxNum, fn) {
   }
   return arrOut;
 }
-
+//all'interno di #square-grid crea una griglia row x item
 function createGrid(row, item) {
   //genero le row
   for(var j = 1; j <= row; j++) {
@@ -52,7 +52,7 @@ var itemNum = 8; //valori per createGrid
 var rowNum = 8;
 
 const redNum = 15;  // quanti rossi ci sono
-const squareNum = 63;  // 64 quadrati totali, da 0 a 63 posizioni 
+const squarePos = 63;  // 64 quadrati totali, da 0 a 63 posizioni 
 
 var redScore = 0; //rossi e verdi trovati
 var greenScore = 0;
@@ -65,7 +65,7 @@ $(document).ready(function () {
   createjGrid(rowNum, itemNum);
 
   //creo un array di 15 elementi con valori da 0 a 63 non ripetuti da utilizzare come posizioni per .square
-  var redPosArr = getNonRepArr(redNum, squareNum, rndGen);
+  var redPosArr = getNonRepArr(redNum, squarePos, rndGen);
   console.log('array posizioni red', redPosArr);
 
   //ciclo arr redPosition e al valore dell'elem i-esimo faccio corrispondere una posizione .square class
