@@ -1,6 +1,6 @@
 //genera un numero casuale fra 0 e max
 function rndGen(max) {
-  var intNUm = Math.floor(Math.random() * max);
+  var intNUm = Math.floor(Math.random() * (max + 1));
   // console.log(intNUm);
   return intNUm;
 }
@@ -20,33 +20,53 @@ function getNonRepArr(arrSize, maxNum, fn) {
   return arrOut;
 }
 
-function getBinaryArr(arrSize, numVal1, fn) {
-  var arrOut = [];
-
+function createGrid() {
+  var item = 8;
+  var row = 8;
+  //genero le row
+  for(var j = 1; j <= row; j++) {
+    document.getElementById('square-grid').innerHTML += '<div class="row"></div>';
+  }
+  //genero gli elementi interni ad ogni riga
+  for (var i = 0; i < row; i++) {
+    for (var k = 1; k <= item; k++) {
+      document.querySelectorAll('.row')[i].innerHTML += '<div class="square"></div>';
+    }
+    
+    // $("#square-grid").html += '<div class="square"></div>';
+  }
+    // $(".square-grid").html("<div class="square"></div>");
 }
 
-const redNum = 15;
-const squareNum = 64;
+createGrid();
 
-var redPositionArr = getNonRepArr(redNum, squareNum, rndGen);
-console.log(redPositionArr);
 
-for (var i = 0; i < redPositionArr.length; i++) {
-  console.log(redPositionArr[i]);
-  // document.querySelectorAll(".square")[redPositionArr[i]].classList.add("red");
-  // $(".square").eq(redPositionArr[i]).addClass("red");
-  $(".square").eq(redPositionArr[i]).attr("red", "true");
-}
 
-// document.querySelectorAll(".square")[4].classList.add("red");
+// $(".square-grid").html("PROVA");
+
+const redNum = 15;  // quanti rossi ci sono
+const squareNum = 63;  // 64 quadrati totali, da 0 a 63 posizioni 
+
+var redScore = 0; //rossi e verdi trovati
+var greenScore = 0;
+
+
 
 
 $(document).ready(function () {
 
+  //creo un array di 15 elementi con valori da 0 a 63 da utilizzare poi come posizioni per il dom
+  var redPosArr = getNonRepArr(redNum, squareNum, rndGen);
+  console.log(redPosArr);
 
-  var redScore = 0;
-  var greenScore = 0;
+  //ciclo arr redPosition e al valore dell'elem i-esimo faccio corrispondere una posizione .square class
+  //alla quale aggiungo l'attributo red="true" per identificarla
+  for (var i = 0; i < redPosArr.length; i++) {
+    // document.querySelectorAll(".square")[redPosArr[i]].classList.add("red");
+    $(".square").eq(redPosArr[i]).attr("red", "true");  //o si poteva aggiungere classe fittizia red
+  }
 
+  //click events on square
   $(".square").click(function() {
     if($(this).attr("red")) {
       $(this).addClass("bg-red cursor-default");
