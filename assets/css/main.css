@@ -9,7 +9,19 @@
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
+.row span {
+  font-weight: bold;
+}
+.red-counter, 
+.green-counter {
+  flex-basis: 20%;
+  height: 50px;
+  line-height: 50px;
+  font-size: 30px;
+}
+
 .square {
   /* display: inline-block; */
   width: calc(100% / 8);
