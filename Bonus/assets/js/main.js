@@ -33,7 +33,8 @@ console.log(redPositionArr);
 
 for (var i = 0; i < redPositionArr.length; i++) {
   console.log(redPositionArr[i]);
-  document.querySelectorAll(".square")[redPositionArr[i]].classList.add("red");
+  // document.querySelectorAll(".square")[redPositionArr[i]].classList.add("red");
+  $(".square").eq(redPositionArr[i]).addClass("red");
 }
 
 // document.querySelectorAll(".square")[4].classList.add("red");
