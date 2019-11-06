@@ -34,7 +34,8 @@ console.log(redPositionArr);
 for (var i = 0; i < redPositionArr.length; i++) {
   console.log(redPositionArr[i]);
   // document.querySelectorAll(".square")[redPositionArr[i]].classList.add("red");
-  $(".square").eq(redPositionArr[i]).addClass("red");
+  // $(".square").eq(redPositionArr[i]).addClass("red");
+  $(".square").eq(redPositionArr[i]).attr("red", "true");
 }
 
 // document.querySelectorAll(".square")[4].classList.add("red");
@@ -47,7 +48,7 @@ $(document).ready(function () {
   var greenScore = 0;
 
   $(".square").click(function() {
-    if($(this).hasClass("red")) {
+    if($(this).attr("red")) {
       $(this).css("background", "red");
       redScore++;
       $(".red-counter > span").text(redScore);
