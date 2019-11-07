@@ -89,7 +89,7 @@ $(document).ready(function () {
       $(this).addClass("bg-red cursor-default");
       redScore++;
       $(".red-counter > span").text(redScore);
-      $(this).off();  //remove event click from this .square , oppure posso rimuovere attributo red
+      $(this).off();  
     } else {
       $(this).addClass("bg-green cursor-default");
       greenScore++;
